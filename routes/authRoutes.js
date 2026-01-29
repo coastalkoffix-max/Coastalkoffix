@@ -7,25 +7,30 @@ const Otp = require("../models/Otp");
 
 const router = express.Router();
 
-// ===============================
-// FIX TLS FOR CLOUD SMTP
-// ===============================
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 // ===============================
 // EMAIL CONFIG (PRODUCTION SAFE)
 // ===============================
-
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-  tls: {
-    rejectUnauthorized: false
-  }
+
+  pool: true,                 // reuse connections (FASTER)
+  maxConnections: 3,
+  maxMessages: 100,
+
+  connectionTimeout: 10000,   // 10 seconds
+  greetingTimeout: 10000,
+  socketTimeout: 10000
 });
+transporter.verify()
+  .then(() => console.log("SMTP Ready"))
+  .catch(err => console.log("SMTP Error:", err));
+
+
 
 // ===============================
 // REGISTER PAGE
