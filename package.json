@@ -1,0 +1,22 @@
+{
+  "name": "coastal-koffix",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "node main.js",
+    "dev": "nodemon main.js"
+  },
+  "dependencies": {
+    "argon2": "^0.44.0",
+    "connect-mongo": "^6.0.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^4.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "mongoose": "^9.1.5",
+    "nodemailer": "^7.0.13"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.11"
+  }
+}

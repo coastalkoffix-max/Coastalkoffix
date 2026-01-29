@@ -1,0 +1,69 @@
+/* =========================
+   📩 VERIFY OTP PAGE (PREMIUM)
+========================= */
+
+.otp-container {
+  width: 340px;
+  margin: 120px auto;
+  padding: 30px;
+  background: linear-gradient(145deg, #111, #0c0c0c);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(244, 180, 26, 0.35);
+  text-align: center;
+}
+
+.otp-title {
+  margin-bottom: 20px;
+  color: #F4B41A;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.otp-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.otp-input {
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  background: #1b1b1b;
+  color: white;
+  font-size: 18px;
+  text-align: center;
+  letter-spacing: 5px;
+  border: 1px solid #333;
+}
+
+/* Input Glow Effect */
+.otp-input:focus {
+  border: 1px solid #0FB9B1;
+  box-shadow: 0 0 8px rgba(15, 185, 177, 0.7);
+}
+
+/* Button Styling */
+.otp-btn {
+  padding: 12px;
+  background: linear-gradient(135deg, #F4B41A, #FF8C32);
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.otp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(244, 180, 26, 0.5);
+}
+.otp-instruction {
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #bbb;
+  text-align: center;
+  line-height: 1.4;
+}
+

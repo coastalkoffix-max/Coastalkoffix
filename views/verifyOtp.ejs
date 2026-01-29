@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+
+<div class="otp-container">
+
+  <h2 class="otp-title">
+    Verify OTP
+  </h2>
+
+  <form class="otp-form" action="/verify-otp" method="POST">
+
+    <input type="hidden" name="email" value="<%= email %>">
+
+    <!-- OTP INSTRUCTION TEXT -->
+    <p class="otp-instruction">
+      Enter the OTP received on your registered email ID
+    </p>
+
+    <input 
+      class="otp-input"
+      type="text"
+      name="otp"
+      placeholder="Enter 4 Digit OTP"
+      maxlength="4"
+      required
+    >
+
+    <button class="otp-btn" type="submit">
+      Verify OTP
+    </button>
+
+  </form>
+
+</div>
+
+<%- include("partials/footer") %>

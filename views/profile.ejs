@@ -1,0 +1,55 @@
+<%- include("partials/header") %>
+
+<%- include("navbar") %>
+
+<link rel="stylesheet" href="/css/profile.css">
+
+<div class="profile-container">
+
+  <div class="profile-card">
+
+    <h2 class="profile-title">
+      Personal Information
+    </h2>
+
+    <div class="profile-row">
+      <span>First Name:</span> <p><%= user.firstName %></p>
+    </div>
+
+    <div class="profile-row">
+      <span>Middle Name:</span> <p><%= user.middleName || "-" %></p>
+    </div>
+
+    <div class="profile-row">
+      <span>Last Name:</span> <p><%= user.lastName %></p>
+    </div>
+
+    <div class="profile-row">
+      <span>Mobile:</span> <p><%= user.mobile %></p>
+    </div>
+
+    <div class="profile-row">
+      <span>Email:</span> <p><%= user.email %></p>
+    </div>
+
+    <div class="profile-row">
+      <span>Country:</span> <p><%= user.country %></p>
+    </div>
+
+    <div class="profile-row">
+      <span>State:</span> <p><%= user.state %></p>
+    </div>
+
+    <div class="profile-row">
+      <span>District:</span> <p><%= user.district %></p>
+    </div>
+
+    <div class="profile-row">
+      <span>Pin Code:</span> <p><%= user.pinCode %></p>
+    </div>
+
+  </div>
+
+</div>
+
+<%- include("partials/footer") %>

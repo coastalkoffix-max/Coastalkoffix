@@ -1,0 +1,10 @@
+.home-container {
+  text-align: center;
+  margin-top: 100px;
+  padding-top: 80px;
+}
+
+.home-welcome-text {
+  font-size: 36px;
+  color: #F4B41A;
+}

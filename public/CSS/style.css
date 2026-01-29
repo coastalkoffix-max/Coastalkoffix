@@ -1,0 +1,42 @@
+html, body {
+  margin: 0;
+  padding: 0;
+
+  font-family: Arial, sans-serif;
+
+  background-color: #0B0B0B !important;
+
+  color: #F5F5F5 !important;
+
+  height: 100%;
+}
+
+/* Prevent Bootstrap White Backgrounds */
+
+.container,
+.container-fluid {
+  background-color: transparent !important;
+}
+
+/* Input + Button Reset */
+
+input,
+button {
+  outline: none;
+  border: none;
+}
+
+/* Bootstrap Form Override */
+
+.form-control {
+  background-color: #1b1b1b !important;
+  color: white !important;
+  border: 1px solid #333;
+}
+
+/* Prevent white cards */
+
+.card {
+  background-color: #0c0c0c !important;
+  color: white;
+}

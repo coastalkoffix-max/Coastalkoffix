@@ -1,0 +1,32 @@
+<%- include("partials/header") %>
+
+<link rel="stylesheet" href="/css/resetOtp.css">
+
+<div class="resetotp-container">
+
+  <div class="resetotp-card">
+
+    <h2 class="resetotp-title">Verify OTP</h2>
+
+    <form class="resetotp-form" action="/reset-otp" method="POST">
+
+      <input type="hidden" name="email" value="<%= email %>">
+
+      <!-- OTP INSTRUCTION -->
+      <p class="otp-instruction">
+        Enter the OTP received on your registered email ID
+      </p>
+
+      <input class="resetotp-input" name="otp" placeholder="Enter OTP" required>
+
+      <button class="resetotp-btn" type="submit">
+        Verify OTP
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<%- include("partials/footer") %>

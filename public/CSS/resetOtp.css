@@ -1,0 +1,119 @@
+/* =========================
+   🔁 RESET OTP PAGE (PREMIUM)
+========================= */
+
+/* Page Centering */
+
+.resetotp-container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #0B0B0B;
+}
+
+
+/* Card Design */
+
+.resetotp-card {
+  width: 340px;
+  padding: 30px;
+
+  background: linear-gradient(145deg, #111, #0c0c0c);
+
+  border-radius: 15px;
+
+  box-shadow: 0 0 20px rgba(244, 180, 26, 0.35);
+
+  text-align: center;
+}
+
+
+/* Title */
+
+.resetotp-title {
+  margin-bottom: 20px;
+
+  color: #F4B41A;
+
+  font-size: 22px;
+
+  letter-spacing: 1px;
+}
+
+
+/* Form Layout */
+
+.resetotp-form {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* OTP Input */
+
+.resetotp-input {
+  padding: 14px;
+
+  margin-bottom: 18px;
+
+  border-radius: 8px;
+
+  background: #1b1b1b;
+
+  color: white;
+
+  font-size: 18px;
+
+  text-align: center;
+
+  letter-spacing: 4px;
+
+  border: 1px solid #333;
+}
+
+
+/* Input Focus Glow */
+
+.resetotp-input:focus {
+  border: 1px solid #0FB9B1;
+
+  box-shadow: 0 0 8px rgba(15, 185, 177, 0.7);
+
+  outline: none;
+}
+
+
+/* Button */
+
+.resetotp-btn {
+  padding: 12px;
+
+  background: linear-gradient(135deg, #F4B41A, #FF8C32);
+
+  color: black;
+
+  font-weight: bold;
+
+  font-size: 15px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.3s ease;
+
+  border: none;
+}
+
+
+/* Button Hover Effect */
+
+.resetotp-btn:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 5px 12px rgba(244, 180, 26, 0.5);
+}

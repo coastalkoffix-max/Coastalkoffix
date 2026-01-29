@@ -1,0 +1,60 @@
+/* =========================
+   👤 PROFILE PAGE
+========================= */
+
+.profile-container {
+  padding-top: 70px;
+
+  min-height: calc(100vh - 70px);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #0B0B0B;
+}
+
+
+
+.profile-card {
+  width: 400px;
+
+  padding: 22px 25px;   /* Reduced vertical padding */
+
+  background: linear-gradient(145deg, #111, #0c0c0c);
+
+  border-radius: 15px;
+
+  box-shadow: 0 0 18px rgba(244, 180, 26, 0.22);
+
+  color: white;
+}
+
+
+.profile-title {
+  text-align: center;
+  margin-bottom: 20px;
+
+  color: #F4B41A;
+}
+
+/* Info Rows */
+
+.profile-row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 6px 0;   /* Reduced row height */
+
+  border-bottom: 1px solid #222;
+}
+
+
+.profile-row span {
+  color: #0FB9B1;
+  font-weight: bold;
+}
+
+.profile-row p {
+  margin: 0;
+}

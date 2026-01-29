@@ -1,0 +1,48 @@
+<%- include("partials/header") %>
+
+<div class="login-container">
+
+  <div class="login-card">
+
+    <h2 class="login-title">
+      Login
+    </h2>
+
+    <form class="login-form" action="/login" method="POST">
+
+      <input 
+        class="login-input"
+        type="email"
+        name="email"
+        placeholder="Email"
+        required
+      >
+
+      <input 
+        class="login-input"
+        type="password"
+        name="password"
+        placeholder="Password"
+        required
+      >
+
+      <button class="login-btn" type="submit">
+        Login
+      </button>
+
+    </form>
+
+    <p class="login-register-link">
+      Don't have an account?
+      <a href="/register">Register</a>
+    </p>
+
+    <p class="login-forgot-link">
+      <a href="/forgot-password">Forgot Password?</a>
+    </p>
+
+  </div>
+
+</div>
+
+<%- include("partials/footer") %>

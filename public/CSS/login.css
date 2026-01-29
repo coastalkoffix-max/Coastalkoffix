@@ -1,0 +1,86 @@
+/* =========================
+   🔐 LOGIN PAGE (PREMIUM)
+========================= */
+
+.login-container {
+  width: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 340px;
+  padding: 30px;
+  background: linear-gradient(145deg, #111, #0c0c0c);
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(244, 180, 26, 0.35);
+  text-align: center;
+}
+
+.login-title {
+  margin-bottom: 20px;
+  color: #F4B41A;
+  font-size: 22px;
+  letter-spacing: 1px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-input {
+  padding: 14px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  background: #1b1b1b;
+  color: white;
+  font-size: 16px;
+  border: 1px solid #333;
+}
+
+/* Input Glow Effect */
+.login-input:focus {
+  border: 1px solid #0FB9B1;
+  box-shadow: 0 0 8px rgba(15, 185, 177, 0.7);
+}
+
+/* Button Styling */
+.login-btn {
+  padding: 12px;
+  background: linear-gradient(135deg, #F4B41A, #FF8C32);
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.login-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(244, 180, 26, 0.5);
+}
+
+/* Links */
+
+.login-register-link,
+.login-forgot-link {
+  margin-top: 12px;
+  font-size: 14px;
+}
+
+.login-register-link a,
+.login-forgot-link a {
+  color: #0FB9B1;
+  text-decoration: none;
+}
+
+.login-register-link a:hover,
+.login-forgot-link a:hover {
+  text-decoration: underline;
+}

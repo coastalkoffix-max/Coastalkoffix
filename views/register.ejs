@@ -1,0 +1,143 @@
+<%- include("partials/header") %>
+
+<div class="register-container">
+
+  <div class="register-card">
+
+    <h2 class="register-title">
+      Register
+    </h2>
+
+    <form class="register-form" action="/register" method="POST">
+
+      <!-- Row 1 -->
+      <div class="register-row">
+        <input class="register-input" name="firstName" placeholder="First Name" required>
+        <input class="register-input" name="middleName" placeholder="Middle Name">
+      </div>
+
+      <!-- Row 2 -->
+      <div class="register-row">
+        <input class="register-input" name="lastName" placeholder="Last Name" required>
+        <input class="register-input" name="mobile" placeholder="Mobile Number" required>
+      </div>
+
+      <!-- Row 3 -->
+      <div class="register-row">
+        <input class="register-input" name="country" placeholder="Country" required>
+        <input class="register-input" name="state" placeholder="State" required>
+      </div>
+
+      <!-- Row 4 -->
+      <div class="register-row">
+        <input class="register-input" name="district" placeholder="District" required>
+        <input class="register-input" name="pinCode" placeholder="Pin Code" required>
+      </div>
+
+      <!-- Email -->
+      <input class="register-input full-width" type="email" name="email" placeholder="Email" required>
+
+      <!-- PASSWORD BOX -->
+      <div class="password-box">
+
+        <input
+          class="register-input full-width"
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+          onkeyup="checkPasswordStrength()"
+        >
+
+        <!-- Strength Meter -->
+        <div class="password-meter">
+          <div id="password-strength-bar"></div>
+        </div>
+
+        <!-- Rules -->
+        <ul class="password-rules">
+          <li id="rule-length">At least 6 characters</li>
+          <li id="rule-upper">1 Uppercase letter</li>
+          <li id="rule-lower">1 Lowercase letter</li>
+          <li id="rule-number">1 Number</li>
+          <li id="rule-special">1 Special character</li>
+        </ul>
+
+      </div>
+
+      <!-- Register Button -->
+      <button class="register-btn full-width" type="submit">
+        Register
+      </button>
+
+    </form>
+
+    <p class="register-login-link">
+      Already have an account?
+      <a href="/login">Login</a>
+    </p>
+
+  </div>
+
+</div>
+
+<!-- PASSWORD VALIDATION SCRIPT -->
+<script>
+
+function checkPasswordStrength() {
+
+  const password = document.getElementById("password").value;
+  const strengthBar = document.getElementById("password-strength-bar");
+
+  let strength = 0;
+
+  const hasUpper = /[A-Z]/.test(password);
+  const hasLower = /[a-z]/.test(password);
+  const hasNumber = /[0-9]/.test(password);
+  const hasSpecial = /[^A-Za-z0-9]/.test(password);
+  const hasLength = password.length >= 6;
+
+  toggleRule("rule-upper", hasUpper);
+  toggleRule("rule-lower", hasLower);
+  toggleRule("rule-number", hasNumber);
+  toggleRule("rule-special", hasSpecial);
+  toggleRule("rule-length", hasLength);
+
+  if (hasUpper) strength++;
+  if (hasLower) strength++;
+  if (hasNumber) strength++;
+  if (hasSpecial) strength++;
+  if (hasLength) strength++;
+
+  // Strength meter colors
+  if (strength <= 2) {
+    strengthBar.style.width = "30%";
+    strengthBar.style.background = "#ff4d4d"; // weak
+  }
+  else if (strength <= 4) {
+    strengthBar.style.width = "65%";
+    strengthBar.style.background = "#F4B41A"; // medium
+  }
+  else {
+    strengthBar.style.width = "100%";
+    strengthBar.style.background = "#0FB9B1"; // strong
+  }
+
+}
+
+function toggleRule(id, condition) {
+
+  const rule = document.getElementById(id);
+
+  if (condition) {
+    rule.classList.add("rule-valid");
+  } else {
+    rule.classList.remove("rule-valid");
+  }
+
+}
+
+</script>
+
+<%- include("partials/footer") %>
