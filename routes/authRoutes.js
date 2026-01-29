@@ -12,20 +12,24 @@ const router = express.Router();
 // EMAIL CONFIG (PRODUCTION SAFE)
 // ===============================
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // SSL
+
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
 
-  pool: true,                 // reuse connections (FASTER)
-  maxConnections: 3,
-  maxMessages: 100,
+  pool: true,
+  maxConnections: 2,
+  maxMessages: 50,
 
-  connectionTimeout: 10000,   // 10 seconds
-  greetingTimeout: 10000,
-  socketTimeout: 10000
+  connectionTimeout: 20000,
+  greetingTimeout: 20000,
+  socketTimeout: 20000
 });
+
 transporter.verify()
   .then(() => console.log("SMTP Ready"))
   .catch(err => console.log("SMTP Error:", err));
