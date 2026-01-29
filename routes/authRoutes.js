@@ -12,18 +12,14 @@ const router = express.Router();
 // EMAIL CONFIG (PRODUCTION SAFE)
 // ===============================
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 465,
-  secure: true, // SSL
+  host: "smtp-relay.brevo.com",
+  port: 587,
+  secure: false,
 
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS
   },
-
-  pool: true,
-  maxConnections: 2,
-  maxMessages: 50,
 
   connectionTimeout: 20000,
   greetingTimeout: 20000,
