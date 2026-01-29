@@ -1,6 +1,8 @@
 const express = require("express");
 const argon2 = require("argon2");
-const nodemailer = require("nodemailer");
+const axios = require("axios");
+
+const BREVO_API_KEY = process.env.BREVO_API_KEY;
 
 const User = require("../models/User");
 const Otp = require("../models/Otp");
@@ -11,24 +13,34 @@ const router = express.Router();
 // ===============================
 // EMAIL CONFIG (PRODUCTION SAFE)
 // ===============================
-const transporter = nodemailer.createTransport({
-  host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
+async function sendEmail(to, subject, content) {
+  try {
+    await axios.post(
+      "https://api.brevo.com/v3/smtp/email",
+      {
+        sender: {
+          name: "Coastal Koffix",
+          email: "coastalkoffix@gmail.com"
+        },
+        to: [{ email: to }],
+        subject: subject,
+        htmlContent: `<p>${content}</p>`
+      },
+      {
+        headers: {
+          "api-key": BREVO_API_KEY,
+          "Content-Type": "application/json"
+        }
+      }
+    );
 
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  },
+    console.log("Email sent successfully");
 
-  connectionTimeout: 20000,
-  greetingTimeout: 20000,
-  socketTimeout: 20000
-});
+  } catch (error) {
+    console.error("Brevo Email Error:", error.response?.data || error.message);
+  }
+}
 
-transporter.verify()
-  .then(() => console.log("SMTP Ready"))
-  .catch(err => console.log("SMTP Error:", err));
 
 
 
@@ -109,14 +121,12 @@ router.post("/register", async (req, res) => {
     await otpData.save();
 
     // SEND EMAIL (NON BLOCKING)
-    transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Coastal Koffix OTP Verification",
-      text: `Your OTP is ${otpCode}`
-    })
-      .then(() => console.log("Registration OTP sent"))
-      .catch(err => console.error("Email Error:", err));
+    sendEmail(
+  email,
+  "Coastal Koffix OTP Verification",
+  `Your OTP is ${otpCode}`
+);
+
 
     // FAST RESPONSE
     res.redirect(`/verify-otp?email=${email}`);
@@ -251,14 +261,12 @@ router.post("/forgot-password", async (req, res) => {
 
     await otpData.save();
 
-    transporter.sendMail({
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Password Reset OTP - Coastal Koffix",
-      text: `Your password reset OTP is ${otpCode}`
-    })
-      .then(() => console.log("Reset OTP sent"))
-      .catch(err => console.error("Reset Email Error:", err));
+    sendEmail(
+  email,
+  "Password Reset OTP - Coastal Koffix",
+  `Your password reset OTP is ${otpCode}`
+);
+
 
     res.redirect(`/reset-otp?email=${email}`);
 
